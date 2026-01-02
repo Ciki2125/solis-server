@@ -6,7 +6,12 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://ciki2125.github.io",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
 // Transporter Gmail (ia datele din .env)
@@ -69,3 +74,4 @@ Solis Candle Co.`,
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log("Server pornit pe portul " + PORT));
+
