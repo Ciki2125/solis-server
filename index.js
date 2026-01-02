@@ -11,7 +11,9 @@ app.use(express.json());
 
 // Transporter Gmail (ia datele din .env)
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -65,4 +67,5 @@ Solis Candle Co.`,
 });
 
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => console.log("Server pornit pe portul " + PORT));
